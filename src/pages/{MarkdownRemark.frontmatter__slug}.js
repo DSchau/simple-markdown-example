@@ -14,7 +14,12 @@ const query = graphql`
 `
 
 function BlogPost({ data }) {
-  return null
+  return (
+    <div>
+      <h1>{data.markdownRemark.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+    </div>
+  )
 }
 
 export async function config() {
